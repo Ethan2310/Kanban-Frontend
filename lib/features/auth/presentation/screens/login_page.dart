@@ -46,75 +46,81 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('User Login')),
-        body: BlocConsumer<AuthBloc, AuthState>(builder: (context, state) {
+      appBar: AppBar(title: const Text('User Login')),
+      body: BlocConsumer<AuthBloc, AuthState>(
+        builder: (context, state) {
           final isLoading = state is AuthLoading;
-          final passwordInputState = state is AuthError &&
+          final passwordInputState =
+              state is AuthError &&
                   state.type == AuthErrorType.invalidCredentials
               ? PasswordInputState.incorrect
               : _passwordInputState;
 
           return Padding(
-              padding: const EdgeInsets.all(24),
-              child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const Icon(Icons.lock_outline, size: 80, color: Colors.blue),
-                      const SizedBox(height: 40),
-                      AppTextBox(
-                        controller: _emailController,
-                        enabled: !isLoading,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
-                          labelText: 'Email',
-                          border: OutlineInputBorder(),
-                          prefix: Icon(Icons.email),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your email';
-                          }
-                          if (!value.contains('@')) {
-                            return 'Please enter a valid email address';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16),
-                      PasswordInputBox(
-                        controller: _passwordController,
-                        enabled: !isLoading,
-                        state: passwordInputState,
-                        onFieldSubmitted: (_) => _handleLogin(),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your password';
-                          }
-                          if (value.length < 6) {
-                            return 'Password must be at least 6 characters';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16),
-                      ElevatedButton(
-                          onPressed: isLoading ? null : _handleLogin,
-                          style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 16)),
-                          child: isLoading
-                              ? const SizedBox(
-                                  height: 20,
-                                  width: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                  ))
-                              : const Text('Login'))
-                    ],
-                  )));
-        }, listener: (context, state) {
+            padding: const EdgeInsets.all(24),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Icon(Icons.lock_outline, size: 80, color: Colors.blue),
+                  const SizedBox(height: 40),
+                  AppTextBox(
+                    controller: _emailController,
+                    enabled: !isLoading,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                      prefix: Icon(Icons.email),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your email';
+                      }
+                      if (!value.contains('@')) {
+                        return 'Please enter a valid email address';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  PasswordInputBox(
+                    controller: _passwordController,
+                    enabled: !isLoading,
+                    state: passwordInputState,
+                    onFieldSubmitted: (_) => _handleLogin(),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your password';
+                      }
+                      if (value.length < 6) {
+                        return 'Password must be at least 6 characters';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: isLoading ? null : _handleLogin,
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                    ),
+                    child: isLoading
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : const Text('Login'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+        listener: (context, state) {
           if (state is AuthError &&
               state.type == AuthErrorType.invalidCredentials) {
             setState(() {
@@ -123,13 +129,19 @@ class _LoginPageState extends State<LoginPage> {
           }
 
           if (state is AuthError) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(state.message), backgroundColor: Colors.red));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+                backgroundColor: Colors.red,
+              ),
+            );
           } else if (state is! AuthLoading) {
             setState(() {
               _passwordInputState = PasswordInputState.normal;
             });
           }
-        }));
+        },
+      ),
+    );
   }
 }

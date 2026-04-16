@@ -8,7 +8,7 @@ abstract class AuthLocalSecureStorage {
 
 class AuthLocalSecureStorageImpl implements AuthLocalSecureStorage {
   final FlutterSecureStorage secureStorage;
-  
+
   static const _tokenKey = 'AUTH_TOKEN';
 
   AuthLocalSecureStorageImpl({required this.secureStorage});

@@ -38,11 +38,13 @@ Future<void> init() async {
   sl.registerLazySingleton(() => AuthCheckUseCase(repository: sl()));
   sl.registerLazySingleton(() => GetCurrentUserUseCase(repository: sl()));
 
-  sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(
-        authRemoteDataSource: sl(),
-        authLocalSecureStorage: sl(),
-        authLocalDataSource: sl(),
-      ));
+  sl.registerLazySingleton<AuthRepository>(
+    () => AuthRepositoryImpl(
+      authRemoteDataSource: sl(),
+      authLocalSecureStorage: sl(),
+      authLocalDataSource: sl(),
+    ),
+  );
 
   sl.registerLazySingleton<AuthRemoteDataSource>(
     () => AuthRemoteDataSourceImpl(dio: sl()),

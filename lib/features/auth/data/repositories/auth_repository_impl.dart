@@ -62,34 +62,34 @@ class AuthRepositoryImpl implements AuthRepository {
       return Left(ServerFailure(message: e.message, errorCode: e.errorCode));
     }
   }
-  
+
   @override
   Future<Either<Failure, UserEntity?>> getCurrentUser() async {
-    try{
+    try {
       final user = await authLocalDataSource.getCachedUser();
       return Right(user);
     } on CacheException catch (_) {
       return const Left(CacheFailure());
     }
   }
-  
+
   @override
   Future<Either<Failure, void>> logout() async {
     try {
       await authLocalSecureStorage.clearToken();
       await authLocalDataSource.clearCache();
       return const Right(null);
-    } on CacheException catch (_ ) {
+    } on CacheException catch (_) {
       return const Left(CacheFailure());
     }
   }
-  
+
   @override
   Future<Either<Failure, bool>> isAuthenticated() async {
     try {
       final token = await authLocalSecureStorage.getCachedToken();
       return Right(token != null);
-    } on CacheException catch (_ ) {
+    } on CacheException catch (_) {
       return const Left(CacheFailure());
     }
   }

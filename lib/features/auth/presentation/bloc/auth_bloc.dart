@@ -40,26 +40,32 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     final result = await checkAuthUseCase(NoParams());
 
-    await result.fold((failure) {
-      emit(AuthUnauthenticated());
-    }, (isAuthenticated) async {
-      if (!isAuthenticated) {
+    await result.fold(
+      (failure) {
         emit(AuthUnauthenticated());
-        return;
-      }
-
-      final userResult = await getCurrentUserUseCase(NoParams());
-      userResult.fold((failure) {
-        emit(AuthUnauthenticated());
-      }, (user) {
-        if (user != null) {
-          emit(AuthAuthenticated(userEntity: user));
+      },
+      (isAuthenticated) async {
+        if (!isAuthenticated) {
+          emit(AuthUnauthenticated());
           return;
         }
 
-        emit(AuthUnauthenticated());
-      });
-    });
+        final userResult = await getCurrentUserUseCase(NoParams());
+        userResult.fold(
+          (failure) {
+            emit(AuthUnauthenticated());
+          },
+          (user) {
+            if (user != null) {
+              emit(AuthAuthenticated(userEntity: user));
+              return;
+            }
+
+            emit(AuthUnauthenticated());
+          },
+        );
+      },
+    );
   }
 
   Future<void> _onLoginRequested(
@@ -72,20 +78,24 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       LoginParams(email: event.email, password: event.password),
     );
 
-    result.fold((failure) {
-      var message = 'Login Error';
-      var errorType = AuthErrorType.generic;
-      if (failure is InvalidCredentialsFailure) {
-        message = 'Invalid credentials: ${failure.message}';
-        errorType = AuthErrorType.invalidCredentials;
-      } else if (failure is ServerFailure) {
-        message = 'Server error: ${failure.message ?? 'Unable to reach auth service.'}';
-        errorType = AuthErrorType.server;
-      }
-      emit(AuthError(message: message, type: errorType));
-    }, (user) {
-      emit(AuthAuthenticated(userEntity: user));
-    });
+    result.fold(
+      (failure) {
+        var message = 'Login Error';
+        var errorType = AuthErrorType.generic;
+        if (failure is InvalidCredentialsFailure) {
+          message = 'Invalid credentials: ${failure.message}';
+          errorType = AuthErrorType.invalidCredentials;
+        } else if (failure is ServerFailure) {
+          message =
+              'Server error: ${failure.message ?? 'Unable to reach auth service.'}';
+          errorType = AuthErrorType.server;
+        }
+        emit(AuthError(message: message, type: errorType));
+      },
+      (user) {
+        emit(AuthAuthenticated(userEntity: user));
+      },
+    );
   }
 
   Future<void> _onLogoutRequested(
@@ -96,17 +106,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     final result = await logOutUseCase(NoParams());
 
-    result.fold((failure) {
-      var message = 'Logout Error';
-      var errorType = AuthErrorType.generic;
-      if (failure is ServerFailure) {
-        message = 'Server error: ${failure.message ?? 'Unable to reach auth service.'}';
-        errorType = AuthErrorType.server;
-      }
-      emit(AuthError(message: message, type: errorType));
-    }, (_) {
-      emit(AuthUnauthenticated());
-    });
+    result.fold(
+      (failure) {
+        var message = 'Logout Error';
+        var errorType = AuthErrorType.generic;
+        if (failure is ServerFailure) {
+          message =
+              'Server error: ${failure.message ?? 'Unable to reach auth service.'}';
+          errorType = AuthErrorType.server;
+        }
+        emit(AuthError(message: message, type: errorType));
+      },
+      (_) {
+        emit(AuthUnauthenticated());
+      },
+    );
   }
 
   Future<void> _onRegisterRequested(
@@ -125,19 +139,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       ),
     );
 
-    result.fold((failure) {
-      var message = 'Registration Error';
-      var errorType = AuthErrorType.generic;
-      if (failure is ConflictFailure) {
-        message = 'Conflict error: ${failure.message}';
-        errorType = AuthErrorType.conflict;
-      } else if (failure is ServerFailure) {
-        message = 'Server error: ${failure.message ?? 'Unable to reach auth service.'}';
-        errorType = AuthErrorType.server;
-      }
-      emit(AuthError(message: message, type: errorType));
-    }, (_) {
-      emit(AuthInitial());
-    });
+    result.fold(
+      (failure) {
+        var message = 'Registration Error';
+        var errorType = AuthErrorType.generic;
+        if (failure is ConflictFailure) {
+          message = 'Conflict error: ${failure.message}';
+          errorType = AuthErrorType.conflict;
+        } else if (failure is ServerFailure) {
+          message =
+              'Server error: ${failure.message ?? 'Unable to reach auth service.'}';
+          errorType = AuthErrorType.server;
+        }
+        emit(AuthError(message: message, type: errorType));
+      },
+      (_) {
+        emit(AuthInitial());
+      },
+    );
   }
 }
