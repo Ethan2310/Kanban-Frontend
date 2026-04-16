@@ -4,7 +4,7 @@ import 'package:kanban_frontend/features/auth/domain/entities/user_entity.dart';
 import 'package:kanban_frontend/features/auth/domain/repositories/auth_repository.dart';
 import 'package:kanban_frontend/core/usecases/usecase.dart';
 
-class RegisterUseCase implements UseCase<UserEntity, RegisterParams>{
+class RegisterUseCase implements UseCase<UserEntity, RegisterParams> {
   final AuthRepository repository;
 
   RegisterUseCase({required this.repository});
@@ -16,7 +16,7 @@ class RegisterUseCase implements UseCase<UserEntity, RegisterParams>{
       password: params.password,
       firstName: params.firstName,
       lastName: params.lastName,
-      role: params.role
+      role: params.role,
     );
   }
 }

@@ -1,0 +1,39 @@
+name: Flutter CI
+
+# Trigger the workflow on pushes to main and any PR targeting main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Format and Analyze
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the repository code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Setup the Flutter environment
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true # Caches Flutter SDK for faster runs
+
+      # 3. Get Flutter dependencies
+      - name: Install Dependencies
+        run: flutter pub get
+
+      # 4. Check formatting (Fails if any file is unformatted)
+      - name: Check Formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      # 5. Run the analyzer (Fails on errors, ignores warnings)
+      - name: Analyze Code
+        run: flutter analyze --no-fatal-warnings

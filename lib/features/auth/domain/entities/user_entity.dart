@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-/// Base class for all entities in the system to ensure 
+/// Base class for all entities in the system to ensure
 /// consistency across the data layer.
 abstract class BaseEntity extends Equatable {
   final int id;
@@ -34,10 +34,7 @@ abstract class BaseEntity extends Equatable {
 }
 
 /// Represents the possible roles a user can have.
-enum UserRole {
-  admin,
-  user,
-}
+enum UserRole { admin, user }
 
 class UserEntity extends BaseEntity {
   final String email;

@@ -16,8 +16,9 @@ class KanbanFrontendApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => di.sl<AuthBloc>(),
-        child: Builder(builder: (context) {
+      create: (_) => di.sl<AuthBloc>(),
+      child: Builder(
+        builder: (context) {
           final authBloc = context.read<AuthBloc>();
           final appRouter = AppRouter(authBloc: authBloc);
 
@@ -25,10 +26,10 @@ class KanbanFrontendApp extends StatelessWidget {
             title: 'Kanban Board',
             routerConfig: appRouter.router,
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-            ),
+            theme: ThemeData(primarySwatch: Colors.blue),
           );
-        }));
+        },
+      ),
+    );
   }
 }

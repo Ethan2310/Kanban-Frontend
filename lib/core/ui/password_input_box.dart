@@ -67,9 +67,7 @@ class _PasswordInputBoxState extends State<PasswordInputBox> {
           onPressed: widget.enabled
               ? () => setState(() => _obscureText = !_obscureText)
               : null,
-          icon: Icon(
-            _obscureText ? Icons.visibility_off : Icons.visibility,
-          ),
+          icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
         ),
       ),
     );

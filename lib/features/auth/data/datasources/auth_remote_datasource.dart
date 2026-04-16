@@ -98,7 +98,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
                 u.containsKey('createdOn') &&
                 u.containsKey('updatedOn') &&
                 u.containsKey('isActive') &&
-                u.containsKey('isVerified') => UserModel.fromJson(u),
+                u.containsKey('isVerified') =>
+          UserModel.fromJson(u),
         Map<String, dynamic> u => UserModel.fromLoginJson(u),
         _ => UserModel.fromLoginJson(data),
       };
@@ -137,9 +138,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       );
 
       // RegisterResponse in OpenAPI is a flat summary payload.
-      return UserModel.fromLoginJson(
-        response.data as Map<String, dynamic>,
-      );
+      return UserModel.fromLoginJson(response.data as Map<String, dynamic>);
     } on DioException catch (e) {
       if (e.response?.statusCode == 409) {
         throw ConflictException(message: _detail(e));

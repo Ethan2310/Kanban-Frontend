@@ -6,10 +6,10 @@ import 'package:kanban_frontend/features/auth/domain/repositories/auth_repositor
 class AuthCheckUseCase implements UseCase<bool, NoParams> {
   final AuthRepository repository;
 
-  AuthCheckUseCase({ required this.repository });
+  AuthCheckUseCase({required this.repository});
 
   @override
   Future<Either<Failure, bool>> call(NoParams params) async {
     return await repository.isAuthenticated();
   }
-} 
+}

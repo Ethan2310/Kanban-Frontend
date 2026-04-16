@@ -4,18 +4,20 @@ import 'package:kanban_frontend/core/error/failures.dart';
 import 'package:kanban_frontend/features/auth/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
 
-class LoginUseCase implements UseCase<UserEntity,LoginParams>{
+class LoginUseCase implements UseCase<UserEntity, LoginParams> {
   final AuthRepository repository;
   LoginUseCase({required this.repository});
 
   @override
   Future<Either<Failure, UserEntity>> call(LoginParams params) async {
-    return await repository.login(email: params.email, password: params.password);
-
+    return await repository.login(
+      email: params.email,
+      password: params.password,
+    );
   }
 }
 
-class LoginParams{
+class LoginParams {
   final String email;
   final String password;
 

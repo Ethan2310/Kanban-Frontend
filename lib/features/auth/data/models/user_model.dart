@@ -1,6 +1,6 @@
 import 'package:kanban_frontend/features/auth/domain/entities/user_entity.dart';
 
-class UserModel extends UserEntity{
+class UserModel extends UserEntity {
   const UserModel({
     required super.id,
     required super.guid,
