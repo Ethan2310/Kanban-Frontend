@@ -28,18 +28,17 @@ class _LoginPageState extends State<LoginPage> {
     final isValid = _formKey.currentState!.validate();
 
     setState(() {
-      _passwordInputState = isValid
-          ? PasswordInputState.normal
-          : PasswordInputState.invalid;
+      _passwordInputState =
+          isValid ? PasswordInputState.normal : PasswordInputState.invalid;
     });
 
     if (isValid) {
       context.read<AuthBloc>().add(
-        AuthLoginRequested(
-          email: _emailController.text.trim(),
-          password: _passwordController.text.trim(),
-        ),
-      );
+            AuthLoginRequested(
+              email: _emailController.text.trim(),
+              password: _passwordController.text.trim(),
+            ),
+          );
     }
   }
 
@@ -50,8 +49,7 @@ class _LoginPageState extends State<LoginPage> {
       body: BlocConsumer<AuthBloc, AuthState>(
         builder: (context, state) {
           final isLoading = state is AuthLoading;
-          final passwordInputState =
-              state is AuthError &&
+          final passwordInputState = state is AuthError &&
                   state.type == AuthErrorType.invalidCredentials
               ? PasswordInputState.incorrect
               : _passwordInputState;

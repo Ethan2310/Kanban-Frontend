@@ -23,14 +23,14 @@ abstract class BaseEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-    id,
-    guid,
-    createdById,
-    createdOn,
-    updatedById,
-    updatedOn,
-    isActive,
-  ];
+        id,
+        guid,
+        createdById,
+        createdOn,
+        updatedById,
+        updatedOn,
+        isActive,
+      ];
 }
 
 /// Represents the possible roles a user can have.
@@ -63,11 +63,11 @@ class UserEntity extends BaseEntity {
 
   @override
   List<Object?> get props => [
-    ...super.props,
-    email,
-    firstName,
-    lastName,
-    role,
-    isVerified,
-  ];
+        ...super.props,
+        email,
+        firstName,
+        lastName,
+        role,
+        isVerified,
+      ];
 }
