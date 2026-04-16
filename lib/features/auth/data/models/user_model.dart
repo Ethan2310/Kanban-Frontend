@@ -28,8 +28,28 @@ class UserModel extends UserEntity{
       email: json['email'],
       firstName: json['firstName'],
       lastName: json['lastName'],
-      role: UserRole.values.firstWhere((e) => e.toString() == 'UserRole.${json['role']}'),
+      role: UserRole.values.firstWhere(
+        (e) => e.name.toLowerCase() == (json['role'] as String).toLowerCase(),
+      ),
       isVerified: json['isVerified'],
+    );
+  }
+
+  factory UserModel.fromLoginJson(Map<String, dynamic> json) {
+    final now = DateTime.now();
+    return UserModel(
+      id: (json['userId'] ?? json['id']) as int,
+      guid: '',
+      createdOn: now,
+      updatedOn: now,
+      isActive: true,
+      email: json['email'] as String,
+      firstName: json['firstName'] as String,
+      lastName: json['lastName'] as String,
+      role: UserRole.values.firstWhere(
+        (e) => e.name.toLowerCase() == (json['role'] as String).toLowerCase(),
+      ),
+      isVerified: true,
     );
   }
 

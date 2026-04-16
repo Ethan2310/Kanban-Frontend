@@ -38,8 +38,17 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   // Extracts the machine-readable error_code from a backend error response.
   String? _errorCode(DioException e) {
     final data = e.response?.data;
-    if (data is Map<String, dynamic>) return data['error_code'] as String?;
+    if (data is Map<String, dynamic>) {
+      return (data['errorCode'] ?? data['error_code']) as String?;
+    }
     return null;
+  }
+
+  // OpenAPI enum casing is "Admin" | "User", while Dart enum names are
+  // lowercased (admin/user).
+  String _toApiRole(UserRole role) {
+    final n = role.name;
+    return n[0].toUpperCase() + n.substring(1);
   }
 
   String _networkHint(DioException e) {
@@ -75,10 +84,24 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         data: {'email': email, 'password': password},
       );
 
-      final token = response.data['token'] as String;
-      final user = UserModel.fromJson(
-        response.data['user'] as Map<String, dynamic>,
-      );
+      final data = response.data as Map<String, dynamic>;
+      final token = data['token'] as String;
+      final nestedUser = data['user'];
+
+      // Accept both payload shapes:
+      // 1) flat: { token, userId, email, ... }
+      // 2) nested: { token, user: { id/userId, email, ... } }
+      final user = switch (nestedUser) {
+        Map<String, dynamic> u
+            when u.containsKey('id') &&
+                u.containsKey('guid') &&
+                u.containsKey('createdOn') &&
+                u.containsKey('updatedOn') &&
+                u.containsKey('isActive') &&
+                u.containsKey('isVerified') => UserModel.fromJson(u),
+        Map<String, dynamic> u => UserModel.fromLoginJson(u),
+        _ => UserModel.fromLoginJson(data),
+      };
       return (token: token, user: user);
     } on DioException catch (e) {
       if (e.response?.statusCode == 401) {
@@ -109,11 +132,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           'password': password,
           'firstName': firstName,
           'lastName': lastName,
-          'role': role.name,
+          'role': _toApiRole(role),
         },
       );
 
-      return UserModel.fromJson(
+      // RegisterResponse in OpenAPI is a flat summary payload.
+      return UserModel.fromLoginJson(
         response.data as Map<String, dynamic>,
       );
     } on DioException catch (e) {
