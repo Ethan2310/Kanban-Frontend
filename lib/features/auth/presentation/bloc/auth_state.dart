@@ -1,32 +1,35 @@
-import 'package:equatable/equatable.dart';
-import 'package:kanban_frontend/features/auth/domain/entities/user_entity.dart';
+part of 'auth_bloc.dart';
 
-abstract class AuthState extends Equatable{
+enum AuthErrorType { generic, invalidCredentials, conflict, server }
+
+abstract class AuthState extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-  class AuthInitial extends AuthState{}
-  class AuthLoading extends AuthState{}
-  
-  class AuthAuthenticated extends AuthState{
-    final UserEntity userEntity;
+class AuthInitial extends AuthState {}
 
-    AuthAuthenticated({required this.userEntity});
+class AuthLoading extends AuthState {}
 
-    @override
-    List<Object?> get props => [userEntity];
-  }
+class AuthAuthenticated extends AuthState {
+  final UserEntity userEntity;
 
-  class AuthError extends AuthState{
-    final String message;
+  AuthAuthenticated({required this.userEntity});
 
-    AuthError({required this.message});
+  @override
+  List<Object?> get props => [userEntity];
+}
 
-    @override
-    List<Object?> get props => [message];
-  }
+class AuthError extends AuthState {
+  final String message;
+  final AuthErrorType type;
 
-  class AuthUnauthenticated extends AuthState{}
+  AuthError({required this.message, this.type = AuthErrorType.generic});
 
-  class AuthRegistering extends AuthState{}
+  @override
+  List<Object?> get props => [message, type];
+}
+
+class AuthUnauthenticated extends AuthState {}
+
+class AuthRegistering extends AuthState {}

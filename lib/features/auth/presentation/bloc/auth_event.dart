@@ -1,16 +1,15 @@
-import 'package:equatable/equatable.dart';
-import 'package:kanban_frontend/features/auth/domain/entities/user_entity.dart';
+part of 'auth_bloc.dart';
 
-abstract class AuthEvent extends Equatable{
+abstract class AuthEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-class AuthGetCurrentUser extends AuthEvent{}
+class AuthGetCurrentUser extends AuthEvent {}
 
-class AuthCheckRequested extends AuthEvent{}
+class AuthCheckRequested extends AuthEvent {}
 
-class AuthLoginRequested extends AuthEvent{
+class AuthLoginRequested extends AuthEvent {
   final String email;
   final String password;
 
@@ -20,9 +19,9 @@ class AuthLoginRequested extends AuthEvent{
   List<Object?> get props => [email, password];
 }
 
-class AuthLogoutRequested extends AuthEvent{}
+class AuthLogoutRequested extends AuthEvent {}
 
-class AuthRegisterRequested extends AuthEvent{
+class AuthRegisterRequested extends AuthEvent {
   final String email;
   final String password;
   final String firstName;

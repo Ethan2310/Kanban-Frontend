@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kanban_frontend/features/auth/presentation/bloc/auth_block.dart';
-import 'package:kanban_frontend/features/auth/presentation/bloc/auth_event.dart';
-import 'package:kanban_frontend/features/auth/presentation/bloc/auth_state.dart';
+import 'package:kanban_frontend/core/ui/app_text_box.dart';
+import 'package:kanban_frontend/core/ui/password_input_box.dart';
+import 'package:kanban_frontend/features/auth/presentation/bloc/bloc.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,6 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  var _passwordInputState = PasswordInputState.normal;
 
   @override
   void dispose() {
@@ -24,19 +25,34 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _handleLogin() {
-    if (_formKey.currentState!.validate()) {
-      context.read<AuthBloc>().add(AuthLoginRequested(
+    final isValid = _formKey.currentState!.validate();
+
+    setState(() {
+      _passwordInputState = isValid
+          ? PasswordInputState.normal
+          : PasswordInputState.invalid;
+    });
+
+    if (isValid) {
+      context.read<AuthBloc>().add(
+        AuthLoginRequested(
           email: _emailController.text.trim(),
-          password: _passwordController.text.trim()));
+          password: _passwordController.text.trim(),
+        ),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title:const Text('User Login')),
+        appBar: AppBar(title: const Text('User Login')),
         body: BlocConsumer<AuthBloc, AuthState>(builder: (context, state) {
           final isLoading = state is AuthLoading;
+          final passwordInputState = state is AuthError &&
+                  state.type == AuthErrorType.invalidCredentials
+              ? PasswordInputState.incorrect
+              : _passwordInputState;
 
           return Padding(
               padding: const EdgeInsets.all(24),
@@ -48,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       const Icon(Icons.lock_outline, size: 80, color: Colors.blue),
                       const SizedBox(height: 40),
-                      TextFormField(
+                      AppTextBox(
                         controller: _emailController,
                         enabled: !isLoading,
                         keyboardType: TextInputType.emailAddress,
@@ -67,15 +83,12 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         },
                       ),
-                      TextFormField(
+                      const SizedBox(height: 16),
+                      PasswordInputBox(
                         controller: _passwordController,
                         enabled: !isLoading,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          labelText:'Password',
-                          border: OutlineInputBorder(),
-                          prefix: Icon(Icons.lock),
-                        ),
+                        state: passwordInputState,
+                        onFieldSubmitted: (_) => _handleLogin(),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your password';
@@ -102,9 +115,20 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   )));
         }, listener: (context, state) {
+          if (state is AuthError &&
+              state.type == AuthErrorType.invalidCredentials) {
+            setState(() {
+              _passwordInputState = PasswordInputState.incorrect;
+            });
+          }
+
           if (state is AuthError) {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text(state.message), backgroundColor: Colors.red));
+          } else if (state is! AuthLoading) {
+            setState(() {
+              _passwordInputState = PasswordInputState.normal;
+            });
           }
         }));
   }

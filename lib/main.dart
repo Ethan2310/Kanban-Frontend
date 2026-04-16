@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kanban_frontend/features/auth/presentation/bloc/auth_block.dart';
+import 'package:kanban_frontend/features/auth/presentation/bloc/bloc.dart';
 import 'package:kanban_frontend/router.dart';
 import 'injection_container.dart' as di;
 

@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kanban_frontend/features/auth/presentation/bloc/auth_block.dart';
-import 'package:kanban_frontend/features/auth/presentation/bloc/auth_state.dart';
+import 'package:kanban_frontend/features/auth/presentation/bloc/bloc.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/home_page.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/login_page.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/register_page.dart';
@@ -54,4 +53,10 @@ class GoRouterRefreshStream extends ChangeNotifier{
   }
 
   late final StreamSubscription _subscription;
+
+  @override
+  void dispose() {
+    _subscription.cancel();
+    super.dispose();
+  }
 }

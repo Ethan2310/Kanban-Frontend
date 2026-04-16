@@ -42,6 +42,28 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     return null;
   }
 
+  String _networkHint(DioException e) {
+    final errorMessage = (e.message ?? '').toLowerCase();
+
+    if (e.type == DioExceptionType.connectionTimeout ||
+        e.type == DioExceptionType.sendTimeout ||
+        e.type == DioExceptionType.receiveTimeout) {
+      return 'Request timed out. Make sure the API server is running and reachable.';
+    }
+
+    if (e.type == DioExceptionType.connectionError ||
+        e.type == DioExceptionType.unknown) {
+      if (errorMessage.contains('xmlhttprequest') ||
+          errorMessage.contains('cors')) {
+        return 'Request blocked by browser (CORS) or API is unreachable. Allow your web origin in backend CORS and verify BASE_URL.';
+      }
+
+      return 'Unable to connect to API. Make sure the backend is running and BASE_URL is correct.';
+    }
+
+    return 'Unexpected server communication error.';
+  }
+
   @override
   Future<({String token, UserModel user})> login({
     required String email,
@@ -62,7 +84,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       if (e.response?.statusCode == 401) {
         throw InvalidCredentialsException(message: _detail(e));
       }
-      throw ServerException(message: _detail(e), errorCode: _errorCode(e));
+      throw ServerException(
+        message: _detail(e) ?? _networkHint(e),
+        errorCode: _errorCode(e),
+      );
     } catch (_) {
       throw const ServerException();
     }
@@ -95,7 +120,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       if (e.response?.statusCode == 409) {
         throw ConflictException(message: _detail(e));
       }
-      throw ServerException(message: _detail(e), errorCode: _errorCode(e));
+      throw ServerException(
+        message: _detail(e) ?? _networkHint(e),
+        errorCode: _errorCode(e),
+      );
     } catch (_) {
       throw const ServerException();
     }
