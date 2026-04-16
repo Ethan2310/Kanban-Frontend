@@ -3,3 +3,11 @@
 .fvm/
 # Local environment variables — never commit real secrets
 .env.local
+
+# Flutter/Dart generated files
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
