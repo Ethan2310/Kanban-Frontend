@@ -1,3 +1,5 @@
 
 # FVM Version Cache
 .fvm/
+# Local environment variables — never commit real secrets
+.env.local
