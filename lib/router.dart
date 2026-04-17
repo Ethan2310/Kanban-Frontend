@@ -27,6 +27,10 @@ class AppRouter {
             return isGoingToLogin ? null : '/login';
           }
 
+          if (authState is AuthRegistrationSuccess) {
+            return isGoingToLogin ? null : '/login';
+          }
+
           if (authState is AuthRegistering) {
             return isGoingToRegister ? null : '/register';
           }

@@ -13,6 +13,7 @@ class PasswordInputBox extends StatefulWidget {
     this.validator,
     this.state = PasswordInputState.normal,
     this.onFieldSubmitted,
+    this.label = 'Password',
   });
 
   final TextEditingController? controller;
@@ -22,6 +23,7 @@ class PasswordInputBox extends StatefulWidget {
   final String? Function(String?)? validator;
   final PasswordInputState state;
   final ValueChanged<String>? onFieldSubmitted;
+  final String label;
 
   @override
   State<PasswordInputBox> createState() => _PasswordInputBoxState();
@@ -49,7 +51,7 @@ class _PasswordInputBoxState extends State<PasswordInputBox> {
       textInputAction: TextInputAction.done,
       onFieldSubmitted: widget.onFieldSubmitted,
       decoration: InputDecoration(
-        labelText: 'Password',
+        labelText: widget.label,
         labelStyle: const TextStyle(color: Colors.white),
         filled: true,
         fillColor: Colors.white.withAlpha(100),

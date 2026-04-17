@@ -19,6 +19,22 @@ class _LoginPageState extends State<LoginPage> {
   var _passwordInputState = PasswordInputState.normal;
 
   @override
+  void initState() {
+    super.initState();
+    // BlocListener only fires on state *changes*. When the router navigates
+    // to this page because AuthRegistrationSuccess was emitted, the page
+    // mounts with that state already current — no change fires the listener.
+    // A post-frame callback catches that case.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final state = context.read<AuthBloc>().state;
+      if (state is AuthRegistrationSuccess) {
+        _handleRegistrationSuccess(state.email);
+      }
+    });
+  }
+
+  @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
@@ -45,6 +61,18 @@ class _LoginPageState extends State<LoginPage> {
 
   void _handleRegister() {
     context.read<AuthBloc>().add(AuthNavigateToRegister());
+  }
+
+  void _handleRegistrationSuccess(String email) {
+    _emailController.text = email;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('$email Successfully Registered'),
+        backgroundColor: Colors.green,
+        duration: const Duration(seconds: 4),
+      ),
+    );
+    context.read<AuthBloc>().add(AuthNavigateToLogin());
   }
 
   @override
@@ -166,6 +194,11 @@ class _LoginPageState extends State<LoginPage> {
                 );
               },
               listener: (context, state) {
+                if (state is AuthRegistrationSuccess) {
+                  _handleRegistrationSuccess(state.email);
+                  return;
+                }
+
                 if (state is AuthError &&
                     state.type == AuthErrorType.invalidCredentials) {
                   setState(() {

@@ -31,6 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthRegisterRequested>(_onRegisterRequested);
     on<AuthCheckRequested>(_onAuthCheckRequested);
     on<AuthNavigateToRegister>(_onAuthNavigateToRegister);
+    on<AuthNavigateToLogin>(_onAuthNavigateToLogin);
   }
 
   Future<void> _onAuthCheckRequested(
@@ -154,8 +155,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
         emit(AuthError(message: message, type: errorType));
       },
-      (_) {
-        emit(AuthInitial());
+      (user) {
+        emit(AuthRegistrationSuccess(email: event.email));
       },
     );
   }
@@ -165,5 +166,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     Emitter<AuthState> emit,
   ) async {
     emit(AuthRegistering());
+  }
+
+  Future<void> _onAuthNavigateToLogin(
+    AuthNavigateToLogin event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(AuthUnauthenticated());
   }
 }
