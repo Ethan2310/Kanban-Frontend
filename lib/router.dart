@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kanban_frontend/core/routing/app_routes.dart';
+import 'package:kanban_frontend/core/ui/Screens/main_shell_screen.dart';
+import 'package:kanban_frontend/core/ui/Screens/mock_feature_screen.dart';
 import 'package:kanban_frontend/features/auth/presentation/bloc/bloc.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/home_page.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/login_page.dart';
@@ -14,44 +17,92 @@ class AppRouter {
   AppRouter({required this.authBloc});
 
   GoRouter get router => GoRouter(
-        initialLocation: '/splash',
+        initialLocation: AppRoutes.splash,
         refreshListenable: GoRouterRefreshStream(authBloc.stream),
         redirect: (context, state) {
           final authState = authBloc.state;
 
-          final isGoingToLogin = state.matchedLocation == '/login';
-          final isGoingToSplash = state.matchedLocation == '/splash';
-          final isGoingToRegister = state.matchedLocation == '/register';
+          final isGoingToLogin = state.matchedLocation == AppRoutes.login;
+          final isGoingToSplash = state.matchedLocation == AppRoutes.splash;
+          final isGoingToRegister = state.matchedLocation == AppRoutes.register;
 
           if (authState is AuthUnauthenticated || authState is AuthError) {
-            return isGoingToLogin ? null : '/login';
+            return isGoingToLogin ? null : AppRoutes.login;
           }
 
           if (authState is AuthRegistrationSuccess) {
-            return isGoingToLogin ? null : '/login';
+            return isGoingToLogin ? null : AppRoutes.login;
           }
 
           if (authState is AuthRegistering) {
-            return isGoingToRegister ? null : '/register';
+            return isGoingToRegister ? null : AppRoutes.register;
           }
 
           if (authState is AuthAuthenticated) {
             if (isGoingToLogin || isGoingToSplash) {
-              return '/home';
+              return AppRoutes.home;
             }
           }
           return null;
         },
         routes: [
           GoRoute(
-              path: '/splash', builder: (context, state) => const SplashPage()),
+            path: AppRoutes.splash,
+            builder: (context, state) => const SplashPage(),
+          ),
           GoRoute(
-              path: '/login', builder: (context, state) => const LoginPage()),
+            path: AppRoutes.login,
+            builder: (context, state) => const LoginPage(),
+          ),
           GoRoute(
-            path: '/register',
+            path: AppRoutes.register,
             builder: (context, state) => const RegisterPage(),
           ),
-          GoRoute(path: '/home', builder: (context, state) => const HomePage()),
+          ShellRoute(
+            builder: (context, state, child) {
+              return MainShellScreen(
+                currentLocation: state.matchedLocation,
+                child: child,
+              );
+            },
+            routes: [
+              GoRoute(
+                path: AppRoutes.home,
+                pageBuilder: (context, state) => NoTransitionPage<void>(
+                  key: state.pageKey,
+                  child: const HomePage(),
+                ),
+              ),
+              GoRoute(
+                path: AppRoutes.projects,
+                pageBuilder: (context, state) => NoTransitionPage<void>(
+                  key: state.pageKey,
+                  child: const MockFeatureScreen(title: 'Projects'),
+                ),
+              ),
+              GoRoute(
+                path: AppRoutes.boards,
+                pageBuilder: (context, state) => NoTransitionPage<void>(
+                  key: state.pageKey,
+                  child: const MockFeatureScreen(title: 'Boards'),
+                ),
+              ),
+              GoRoute(
+                path: AppRoutes.lists,
+                pageBuilder: (context, state) => NoTransitionPage<void>(
+                  key: state.pageKey,
+                  child: const MockFeatureScreen(title: 'Lists'),
+                ),
+              ),
+              GoRoute(
+                path: AppRoutes.tasks,
+                pageBuilder: (context, state) => NoTransitionPage<void>(
+                  key: state.pageKey,
+                  child: const MockFeatureScreen(title: 'Tasks'),
+                ),
+              ),
+            ],
+          ),
         ],
       );
 }

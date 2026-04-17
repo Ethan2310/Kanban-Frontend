@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kanban_frontend/core/ui/app_text_box.dart';
-import 'package:kanban_frontend/core/ui/password_input_box.dart';
+import 'package:kanban_frontend/core/ui/widgets/app_text_box.dart';
+import 'package:kanban_frontend/core/ui/widgets/password_input_box.dart';
 import 'package:kanban_frontend/core/utils/constants_assets.dart';
 import 'package:kanban_frontend/features/auth/presentation/bloc/bloc.dart';
 

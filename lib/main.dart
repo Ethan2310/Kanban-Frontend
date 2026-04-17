@@ -15,8 +15,12 @@ class KanbanFrontendApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => di.sl<AuthBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (_) => di.sl<AuthBloc>(),
+        ),
+      ],
       child: Builder(
         builder: (context) {
           final authBloc = context.read<AuthBloc>();

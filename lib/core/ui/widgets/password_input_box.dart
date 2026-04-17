@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kanban_frontend/core/ui/app_text_box.dart';
+import 'package:kanban_frontend/core/ui/widgets/app_text_box.dart';
 
 enum PasswordInputState { normal, invalid, incorrect }
 
