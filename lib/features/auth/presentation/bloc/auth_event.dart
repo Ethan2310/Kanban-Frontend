@@ -21,6 +21,10 @@ class AuthLoginRequested extends AuthEvent {
 
 class AuthLogoutRequested extends AuthEvent {}
 
+class AuthNavigateToRegister extends AuthEvent {}
+
+class AuthNavigateToLogin extends AuthEvent {}
+
 class AuthRegisterRequested extends AuthEvent {
   final String email;
   final String password;

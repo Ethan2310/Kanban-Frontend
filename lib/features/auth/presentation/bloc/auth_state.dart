@@ -33,3 +33,12 @@ class AuthError extends AuthState {
 class AuthUnauthenticated extends AuthState {}
 
 class AuthRegistering extends AuthState {}
+
+class AuthRegistrationSuccess extends AuthState {
+  final String email;
+
+  AuthRegistrationSuccess({required this.email});
+
+  @override
+  List<Object?> get props => [email];
+}
