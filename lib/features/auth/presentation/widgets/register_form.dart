@@ -77,8 +77,9 @@ class RegisterForm extends StatelessWidget {
               enabled: enabled,
               validator: (v) {
                 if (v == null || v.isEmpty) return 'Please enter a password';
-                if (v.length < 6)
+                if (v.length < 6) {
                   return 'Password must be at least 6 characters';
+                }
                 return null;
               },
             ),
@@ -88,10 +89,12 @@ class RegisterForm extends StatelessWidget {
               controller: confirmPasswordController,
               enabled: enabled,
               validator: (v) {
-                if (v == null || v.isEmpty)
+                if (v == null || v.isEmpty) {
                   return 'Please confirm your password';
-                if (v != passwordController.text)
+                }
+                if (v != passwordController.text) {
                   return 'Passwords do not match';
+                }
                 return null;
               },
             ),
