@@ -50,6 +50,9 @@ class _PasswordInputBoxState extends State<PasswordInputBox> {
       onFieldSubmitted: widget.onFieldSubmitted,
       decoration: InputDecoration(
         labelText: 'Password',
+        labelStyle: const TextStyle(color: Colors.white),
+        filled: true,
+        fillColor: Colors.white.withAlpha(100),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: borderColor),
@@ -64,6 +67,7 @@ class _PasswordInputBoxState extends State<PasswordInputBox> {
         ),
         prefixIcon: const Icon(Icons.lock),
         suffixIcon: IconButton(
+          color: Colors.black,
           onPressed: widget.enabled
               ? () => setState(() => _obscureText = !_obscureText)
               : null,

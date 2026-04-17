@@ -72,6 +72,7 @@ flutter:
 
   assets:
     - .env.local
+    - assets/images/  # This includes all files in this directory
 
   # To add assets to your application, add an assets section, like this:
   # assets:
