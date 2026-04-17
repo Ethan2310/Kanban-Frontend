@@ -43,6 +43,10 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  void _handleRegister() {
+    context.read<AuthBloc>().add(AuthNavigateToRegister());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,6 +139,26 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 )
                               : const Text('Login'),
+                        ),
+                        const SizedBox(height: 24),
+                        ElevatedButton(
+                          onPressed: isLoading ? null : _handleRegister,
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            backgroundColor: Colors.greenAccent,
+                            foregroundColor: Colors.white,
+                          ),
+                          child: isLoading
+                              ? const SizedBox(
+                                  height: 20,
+                                  width: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: Colors.white,
+                                  ),
+                                )
+                              : const Text('Register',
+                                  style: TextStyle(color: Colors.black)),
                         ),
                       ],
                     ),
