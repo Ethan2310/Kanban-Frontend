@@ -8,5 +8,7 @@ A flutter application built to be the front-end for a Kanban Board styled projec
 
 ## Instructions to run 
 fvm install
+
 fvm flutter pub get 
+
 fvm flutter run
