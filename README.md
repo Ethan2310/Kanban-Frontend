@@ -1,16 +1,12 @@
 # kanban_frontend
 
-A new Flutter project.
+A flutter application built to be the front-end for a Kanban Board styled project
 
-## Getting Started
+## Documentation
+[Front-End Architecture](https://app.affine.pro/workspace/512856ec-1b1f-4f5e-87a8-2e7b80ad816d/4nP17F7yvu5uWywRupynn)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Instructions to run 
+fvm install
+fvm flutter pub get 
+fvm flutter run
