@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kanban_frontend/core/ui/widgets/add_button.dart';
+import 'package:kanban_frontend/core/ui/widgets/icon_button.dart';
 
 class MockFeatureScreen extends StatelessWidget {
   final String title;
@@ -21,7 +21,8 @@ class MockFeatureScreen extends StatelessWidget {
             onPressed: () {/* TODO: Implement action */},
             text: 'Add $title',
             backgroundColor: Colors.black,
-            size: const Size(50, 10)),
+            size: const Size(50, 10),
+            icon: Icons.add),
       ],
     ));
   }

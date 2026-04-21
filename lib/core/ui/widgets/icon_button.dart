@@ -5,16 +5,22 @@ class AddButton extends StatelessWidget {
   final String? text;
   final Color? backgroundColor;
   final Size size;
+  final Size minimumSize;
+  final Size maximumSize;
   final Color? textColor;
   final Color? iconColor;
+  final IconData icon;
   const AddButton(
       {super.key,
       required this.onPressed,
       this.text,
       this.backgroundColor,
       required this.size,
+      this.minimumSize = const Size(150, 50),
+      this.maximumSize = const Size(500, 200),
       this.textColor,
-      this.iconColor});
+      this.iconColor,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +34,8 @@ class AddButton extends StatelessWidget {
         backgroundColor:
             backgroundColor ?? Theme.of(context).colorScheme.primary,
         fixedSize: size,
-        minimumSize: const Size(150, 50),
-        maximumSize: const Size(500, 200),
+        minimumSize: minimumSize,
+        maximumSize: maximumSize,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -38,7 +44,7 @@ class AddButton extends StatelessWidget {
           if (text != null) ...[
             Text(text!, style: TextStyle(color: textColor ?? Colors.white)),
           ],
-          Icon(Icons.add, color: iconColor ?? Colors.white),
+          Icon(icon, color: iconColor ?? Colors.white),
         ],
       ),
     );
