@@ -15,7 +15,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterRequest"
+                "$ref": "#/components/schemas/Application.Users.RegisterRequest"
               }
             }
           },
@@ -27,7 +27,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RegisterResponse"
+                  "$ref": "#/components/schemas/Application.Users.RegisterResponse"
                 }
               }
             }
@@ -37,7 +37,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -47,7 +47,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -57,7 +57,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -67,7 +67,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -85,7 +85,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
+                "$ref": "#/components/schemas/Application.Users.LoginRequest"
               }
             }
           },
@@ -97,7 +97,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AuthResponse"
+                  "$ref": "#/components/schemas/Application.Users.AuthResponse"
                 }
               }
             }
@@ -107,7 +107,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -117,7 +117,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -127,7 +127,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -147,7 +147,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateBoardRequest"
+                "$ref": "#/components/schemas/Application.Boards.CreateBoardRequest"
               }
             }
           },
@@ -159,7 +159,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateBoardResponse"
+                  "$ref": "#/components/schemas/Application.Boards.CreateBoardResponse"
                 }
               }
             }
@@ -169,7 +169,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -179,7 +179,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -189,7 +189,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -244,7 +244,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetBoardsResponse"
+                  "$ref": "#/components/schemas/Application.Boards.GetBoardsResponse"
                 }
               }
             }
@@ -254,7 +254,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -264,7 +264,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -274,7 +274,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -305,7 +305,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateBoardRequest"
+                "$ref": "#/components/schemas/Application.Boards.UpdateBoardRequest"
               }
             }
           },
@@ -317,7 +317,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateBoardResponse"
+                  "$ref": "#/components/schemas/Application.Boards.UpdateBoardResponse"
                 }
               }
             }
@@ -327,7 +327,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -337,7 +337,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -347,7 +347,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -357,7 +357,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -388,7 +388,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteBoardResponse"
+                  "$ref": "#/components/schemas/Application.Boards.DeleteBoardResponse"
                 }
               }
             }
@@ -398,7 +398,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -408,7 +408,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -418,7 +418,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -428,7 +428,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -448,7 +448,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateListRequest"
+                "$ref": "#/components/schemas/Application.Lists.CreateListRequest"
               }
             }
           },
@@ -460,7 +460,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateListResponse"
+                  "$ref": "#/components/schemas/Application.Lists.CreateListResponse"
                 }
               }
             }
@@ -470,7 +470,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -480,7 +480,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -490,7 +490,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -500,7 +500,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -555,7 +555,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetListsResponse"
+                  "$ref": "#/components/schemas/Application.Lists.GetListsResponse"
                 }
               }
             }
@@ -565,7 +565,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -575,7 +575,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -585,7 +585,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -616,7 +616,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateListRequest"
+                "$ref": "#/components/schemas/Application.Lists.UpdateListRequest"
               }
             }
           },
@@ -628,7 +628,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateListResponse"
+                  "$ref": "#/components/schemas/Application.Lists.UpdateListResponse"
                 }
               }
             }
@@ -638,7 +638,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -648,7 +648,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -658,7 +658,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -668,7 +668,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -699,7 +699,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteListResponse"
+                  "$ref": "#/components/schemas/Application.Lists.DeleteListResponse"
                 }
               }
             }
@@ -709,7 +709,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -719,7 +719,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -729,7 +729,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -739,7 +739,259 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{projectId}/users": {
+      "post": {
+        "tags": [
+          "Project User Access"
+        ],
+        "summary": "Add user access to a project",
+        "description": "Creates a user-project access entry for the specified project and user.",
+        "operationId": "AddUserToProject",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Web.Endpoints.AddUserToProjectRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application.Projects.AddUserToProjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Project User Access"
+        ],
+        "summary": "Get users in a project",
+        "description": "Retrieves a paginated list of users who have access to the specified project.",
+        "operationId": "GetUsersInProject",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application.Projects.GetUsersInProjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{projectId}/users/{userId}": {
+      "delete": {
+        "tags": [
+          "Project User Access"
+        ],
+        "summary": "Remove user access from a project",
+        "description": "Revokes a user's access to the specified project by deactivating the user-project access entry.",
+        "operationId": "RemoveUserFromProject",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application.Projects.RemoveUserFromProjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -759,7 +1011,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateProjectRequest"
+                "$ref": "#/components/schemas/Application.Projects.CreateProjectRequest"
               }
             }
           },
@@ -771,7 +1023,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateProjectResponse"
+                  "$ref": "#/components/schemas/Application.Projects.CreateProjectResponse"
                 }
               }
             }
@@ -781,7 +1033,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -791,7 +1043,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -801,7 +1053,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -864,7 +1116,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetProjectsResponse"
+                  "$ref": "#/components/schemas/Application.Projects.GetProjectsResponse"
                 }
               }
             }
@@ -874,7 +1126,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -884,7 +1136,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -894,7 +1146,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -925,7 +1177,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateProjectRequest"
+                "$ref": "#/components/schemas/Application.Projects.UpdateProjectRequest"
               }
             }
           },
@@ -937,7 +1189,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateProjectResponse"
+                  "$ref": "#/components/schemas/Application.Projects.UpdateProjectResponse"
                 }
               }
             }
@@ -947,7 +1199,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -957,7 +1209,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -967,7 +1219,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -977,7 +1229,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1011,7 +1263,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1021,7 +1273,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1031,7 +1283,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1041,7 +1293,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1061,7 +1313,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStatusRequest"
+                "$ref": "#/components/schemas/Application.Statuses.CreateStatusRequest"
               }
             }
           },
@@ -1073,7 +1325,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateStatusResponse"
+                  "$ref": "#/components/schemas/Application.Statuses.CreateStatusResponse"
                 }
               }
             }
@@ -1083,7 +1335,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1093,7 +1345,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1103,7 +1355,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1150,7 +1402,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetStatusesResponse"
+                  "$ref": "#/components/schemas/Application.Statuses.GetStatusesResponse"
                 }
               }
             }
@@ -1160,7 +1412,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1170,7 +1422,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1180,7 +1432,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1211,7 +1463,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStatusRequest"
+                "$ref": "#/components/schemas/Application.Statuses.UpdateStatusRequest"
               }
             }
           },
@@ -1223,7 +1475,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateStatusResponse"
+                  "$ref": "#/components/schemas/Application.Statuses.UpdateStatusResponse"
                 }
               }
             }
@@ -1233,7 +1485,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1243,7 +1495,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1253,7 +1505,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1263,7 +1515,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1294,7 +1546,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteStatusResponse"
+                  "$ref": "#/components/schemas/Application.Statuses.DeleteStatusResponse"
                 }
               }
             }
@@ -1304,7 +1556,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1314,7 +1566,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1324,7 +1576,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1334,7 +1586,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1354,7 +1606,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateTaskRequest"
+                "$ref": "#/components/schemas/Application.Tasks.CreateTaskRequest"
               }
             }
           },
@@ -1366,7 +1618,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateTaskResponse"
+                  "$ref": "#/components/schemas/Application.Tasks.CreateTaskResponse"
                 }
               }
             }
@@ -1376,7 +1628,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1386,7 +1638,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1396,7 +1648,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1406,7 +1658,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1478,7 +1730,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetTasksResponse"
+                  "$ref": "#/components/schemas/Application.Tasks.GetTasksResponse"
                 }
               }
             }
@@ -1488,7 +1740,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1498,7 +1750,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1508,7 +1760,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1539,7 +1791,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateTaskRequest"
+                "$ref": "#/components/schemas/Application.Tasks.UpdateTaskRequest"
               }
             }
           },
@@ -1551,7 +1803,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateTaskResponse"
+                  "$ref": "#/components/schemas/Application.Tasks.UpdateTaskResponse"
                 }
               }
             }
@@ -1561,7 +1813,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1571,7 +1823,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1581,7 +1833,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1591,7 +1843,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1622,7 +1874,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteTaskResponse"
+                  "$ref": "#/components/schemas/Application.Tasks.DeleteTaskResponse"
                 }
               }
             }
@@ -1632,7 +1884,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1642,7 +1894,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1652,7 +1904,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1662,7 +1914,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1698,7 +1950,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1708,7 +1960,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1718,7 +1970,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1728,7 +1980,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1738,7 +1990,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1801,7 +2053,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetUsersResponse"
+                  "$ref": "#/components/schemas/Application.Users.GetUsersResponse"
                 }
               }
             }
@@ -1811,7 +2063,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1821,7 +2073,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1831,7 +2083,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
+                  "$ref": "#/components/schemas/Web.OpenApi.ApiErrorResponse"
                 }
               }
             }
@@ -1842,36 +2094,777 @@
   },
   "components": {
     "schemas": {
-      "ApiErrorResponse": {
+      "Application.Boards.BoardSummaryResponse": {
         "type": "object",
         "properties": {
-          "status": {
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Boards.CreateBoardRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Boards.CreateBoardResponse": {
+        "type": "object",
+        "properties": {
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Boards.DeleteBoardResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Boards.GetBoardsResponse": {
+        "type": "object",
+        "properties": {
+          "boards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Application.Boards.BoardSummaryResponse"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Application.Common.Models.PaginationMetadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Boards.UpdateBoardRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Boards.UpdateBoardResponse": {
+        "type": "object",
+        "properties": {
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Common.Models.PaginationMetadata": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Lists.CreateListRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Lists.CreateListResponse": {
+        "type": "object",
+        "properties": {
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Lists.DeleteListResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Lists.GetListsResponse": {
+        "type": "object",
+        "properties": {
+          "lists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Application.Lists.ListSummaryResponse"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Application.Common.Models.PaginationMetadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Lists.ListSummaryResponse": {
+        "type": "object",
+        "properties": {
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Lists.UpdateListRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Lists.UpdateListResponse": {
+        "type": "object",
+        "properties": {
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.AddUserToProjectResponse": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.CreateProjectRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.CreateProjectResponse": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.GetProjectsResponse": {
+        "type": "object",
+        "properties": {
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Application.Projects.ProjectSummaryResponse"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Application.Common.Models.PaginationMetadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.GetUsersInProjectResponse": {
+        "type": "object",
+        "properties": {
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Application.Projects.ProjectUserSummaryResponse"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Application.Common.Models.PaginationMetadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.ProjectSummaryResponse": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.ProjectUserSummaryResponse": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.RemoveUserFromProjectResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.UpdateProjectRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Projects.UpdateProjectResponse": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Statuses.CreateStatusRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "color": {
+            "maxLength": 7,
+            "minLength": 7,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Statuses.CreateStatusResponse": {
+        "type": "object",
+        "properties": {
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "color": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Statuses.DeleteStatusResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Statuses.GetStatusesResponse": {
+        "type": "object",
+        "properties": {
+          "statuses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Application.Statuses.StatusSummaryResponse"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Application.Common.Models.PaginationMetadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Statuses.StatusSummaryResponse": {
+        "type": "object",
+        "properties": {
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "color": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Statuses.UpdateStatusRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "color": {
+            "maxLength": 7,
+            "minLength": 7,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Statuses.UpdateStatusResponse": {
+        "type": "object",
+        "properties": {
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "color": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Tasks.CreateTaskRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "assignedUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Domain.Enumerations.TaskPriority"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Tasks.CreateTaskResponse": {
+        "type": "object",
+        "properties": {
+          "taskId": {
             "type": "integer",
             "format": "int32"
           },
           "title": {
             "type": "string"
           },
-          "detail": {
-            "type": "string"
+          "description": {
+            "type": "string",
+            "nullable": true
           },
-          "errorCode": {
-            "type": "string"
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
           },
-          "errors": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "assignedUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Domain.Enumerations.TaskPriority"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "AuthResponse": {
+      "Application.Tasks.DeleteTaskResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Tasks.GetTasksResponse": {
+        "type": "object",
+        "properties": {
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Application.Tasks.TaskSummaryResponse"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Application.Common.Models.PaginationMetadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Tasks.TaskSummaryResponse": {
+        "type": "object",
+        "properties": {
+          "taskId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "assignedUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Domain.Enumerations.TaskPriority"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Tasks.UpdateTaskRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "assignedUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Domain.Enumerations.TaskPriority"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Tasks.UpdateTaskResponse": {
+        "type": "object",
+        "properties": {
+          "taskId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "boardId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "listId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "assignedUserId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orderIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Domain.Enumerations.TaskPriority"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Application.Users.AuthResponse": {
         "type": "object",
         "properties": {
           "token": {
@@ -1896,403 +2889,22 @@
         },
         "additionalProperties": false
       },
-      "BoardSummaryResponse": {
-        "type": "object",
-        "properties": {
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateBoardRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateBoardResponse": {
-        "type": "object",
-        "properties": {
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateListRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateListResponse": {
-        "type": "object",
-        "properties": {
-          "listId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateProjectRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateProjectResponse": {
-        "type": "object",
-        "properties": {
-          "projectId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateStatusRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "color": {
-            "maxLength": 7,
-            "minLength": 7,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateStatusResponse": {
-        "type": "object",
-        "properties": {
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "color": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateTaskRequest": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "listId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "assignedUserId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "priority": {
-            "$ref": "#/components/schemas/TaskPriority"
-          },
-          "dueDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateTaskResponse": {
-        "type": "object",
-        "properties": {
-          "taskId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "listId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "assignedUserId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "priority": {
-            "$ref": "#/components/schemas/TaskPriority"
-          },
-          "dueDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "DeleteBoardResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DeleteListResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DeleteStatusResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DeleteTaskResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetBoardsResponse": {
-        "type": "object",
-        "properties": {
-          "boards": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BoardSummaryResponse"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationMetadata"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetListsResponse": {
-        "type": "object",
-        "properties": {
-          "lists": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ListSummaryResponse"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationMetadata"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetProjectsResponse": {
-        "type": "object",
-        "properties": {
-          "projects": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProjectSummaryResponse"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationMetadata"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetStatusesResponse": {
-        "type": "object",
-        "properties": {
-          "statuses": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StatusSummaryResponse"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationMetadata"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetTasksResponse": {
-        "type": "object",
-        "properties": {
-          "tasks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TaskSummaryResponse"
-            }
-          },
-          "pagination": {
-            "$ref": "#/components/schemas/PaginationMetadata"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetUsersResponse": {
+      "Application.Users.GetUsersResponse": {
         "type": "object",
         "properties": {
           "users": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/UserSummaryResponse"
+              "$ref": "#/components/schemas/Application.Users.UserSummaryResponse"
             }
           },
           "pagination": {
-            "$ref": "#/components/schemas/PaginationMetadata"
+            "$ref": "#/components/schemas/Application.Common.Models.PaginationMetadata"
           }
         },
         "additionalProperties": false
       },
-      "ListSummaryResponse": {
-        "type": "object",
-        "properties": {
-          "listId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LoginRequest": {
+      "Application.Users.LoginRequest": {
         "type": "object",
         "properties": {
           "email": {
@@ -2304,47 +2916,7 @@
         },
         "additionalProperties": false
       },
-      "PaginationMetadata": {
-        "type": "object",
-        "properties": {
-          "pageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "totalCount": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "totalPages": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProjectSummaryResponse": {
-        "type": "object",
-        "properties": {
-          "projectId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RegisterRequest": {
+      "Application.Users.RegisterRequest": {
         "type": "object",
         "properties": {
           "email": {
@@ -2360,7 +2932,7 @@
             "type": "string"
           },
           "role": {
-            "$ref": "#/components/schemas/UserRole"
+            "$ref": "#/components/schemas/Domain.Enumerations.UserRole"
           },
           "addedById": {
             "type": "integer",
@@ -2370,7 +2942,7 @@
         },
         "additionalProperties": false
       },
-      "RegisterResponse": {
+      "Application.Users.RegisterResponse": {
         "type": "object",
         "properties": {
           "userId": {
@@ -2392,314 +2964,7 @@
         },
         "additionalProperties": false
       },
-      "StatusSummaryResponse": {
-        "type": "object",
-        "properties": {
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "color": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TaskPriority": {
-        "enum": [
-          "Low",
-          "Medium",
-          "High"
-        ],
-        "type": "string"
-      },
-      "TaskSummaryResponse": {
-        "type": "object",
-        "properties": {
-          "taskId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "listId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "assignedUserId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "priority": {
-            "$ref": "#/components/schemas/TaskPriority"
-          },
-          "dueDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateBoardRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateBoardResponse": {
-        "type": "object",
-        "properties": {
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateListRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateListResponse": {
-        "type": "object",
-        "properties": {
-          "listId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateProjectRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateProjectResponse": {
-        "type": "object",
-        "properties": {
-          "projectId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateStatusRequest": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "color": {
-            "maxLength": 7,
-            "minLength": 7,
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateStatusResponse": {
-        "type": "object",
-        "properties": {
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string"
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "color": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateTaskRequest": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "assignedUserId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "priority": {
-            "$ref": "#/components/schemas/TaskPriority"
-          },
-          "dueDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateTaskResponse": {
-        "type": "object",
-        "properties": {
-          "taskId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "boardId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "listId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "assignedUserId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "orderIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "priority": {
-            "$ref": "#/components/schemas/TaskPriority"
-          },
-          "dueDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserRole": {
-        "enum": [
-          "Admin",
-          "User"
-        ],
-        "type": "string"
-      },
-      "UserSummaryResponse": {
+      "Application.Users.UserSummaryResponse": {
         "type": "object",
         "properties": {
           "userId": {
@@ -2720,6 +2985,60 @@
           },
           "isVerified": {
             "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Domain.Enumerations.TaskPriority": {
+        "enum": [
+          "Low",
+          "Medium",
+          "High"
+        ],
+        "type": "string"
+      },
+      "Domain.Enumerations.UserRole": {
+        "enum": [
+          "Admin",
+          "User"
+        ],
+        "type": "string"
+      },
+      "Web.Endpoints.AddUserToProjectRequestBody": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Web.OpenApi.ApiErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

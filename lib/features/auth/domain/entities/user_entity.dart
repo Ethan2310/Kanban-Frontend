@@ -1,37 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-/// Base class for all entities in the system to ensure
-/// consistency across the data layer.
-abstract class BaseEntity extends Equatable {
-  final int id;
-  final String guid;
-  final int? createdById;
-  final DateTime createdOn;
-  final int? updatedById;
-  final DateTime updatedOn;
-  final bool isActive;
-
-  const BaseEntity({
-    required this.id,
-    required this.guid,
-    this.createdById,
-    required this.createdOn,
-    this.updatedById,
-    required this.updatedOn,
-    required this.isActive,
-  });
-
-  @override
-  List<Object?> get props => [
-        id,
-        guid,
-        createdById,
-        createdOn,
-        updatedById,
-        updatedOn,
-        isActive,
-      ];
-}
+import 'package:kanban_frontend/core/entities/base_entity.dart';
 
 /// Represents the possible roles a user can have.
 enum UserRole { admin, user }
