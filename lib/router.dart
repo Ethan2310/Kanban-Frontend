@@ -10,6 +10,7 @@ import 'package:kanban_frontend/features/auth/presentation/screens/home_page.dar
 import 'package:kanban_frontend/features/auth/presentation/screens/login_page.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/register_page.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/splash_page.dart';
+import 'package:kanban_frontend/features/projects/presentation/screens/project_info_card_demo_screen.dart';
 
 class AppRouter {
   final AuthBloc authBloc;
@@ -77,7 +78,7 @@ class AppRouter {
                 path: AppRoutes.projects,
                 pageBuilder: (context, state) => NoTransitionPage<void>(
                   key: state.pageKey,
-                  child: const MockFeatureScreen(title: 'Projects'),
+                  child: const ProjectInfoCardDemoScreen(),
                 ),
               ),
               GoRoute(
