@@ -14,16 +14,24 @@ class ProjectModel extends ProjectEntity {
   });
 
   factory ProjectModel.fromJson(Map<String, dynamic> json) {
+    final createdOnRaw = json['createdOn'];
+    final updatedOnRaw = json['updatedOn'];
+
     return ProjectModel(
-      id: json['id'],
-      guid: json['guid'],
-      createdById: json['createdById'],
-      createdOn: DateTime.parse(json['createdOn']),
-      updatedById: json['updatedById'],
-      updatedOn: DateTime.parse(json['updatedOn']),
-      isActive: json['isActive'],
-      name: json['name'],
-      description: json['description'],
+      // Supports both {id: ...} and {projectId: ...} payloads.
+      id: (json['id'] ?? json['projectId']) as int,
+      guid: (json['guid'] as String?) ?? '',
+      createdById: json['createdById'] as int?,
+      createdOn: createdOnRaw is String
+          ? DateTime.parse(createdOnRaw)
+          : DateTime.fromMillisecondsSinceEpoch(0),
+      updatedById: json['updatedById'] as int?,
+      updatedOn: updatedOnRaw is String
+          ? DateTime.parse(updatedOnRaw)
+          : DateTime.fromMillisecondsSinceEpoch(0),
+      isActive: (json['isActive'] as bool?) ?? true,
+      name: (json['name'] as String?) ?? '',
+      description: (json['description'] as String?) ?? '',
     );
   }
 
@@ -55,7 +63,7 @@ class ProjectListModel extends ProjectListEntity {
     final pagination = json['pagination'] as Map<String, dynamic>;
     return ProjectListModel(
       projects: (json['projects'] as List)
-          .map((e) => ProjectModel.fromJson(e))
+          .map((e) => ProjectModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalCount: pagination['totalCount'] as int,
       pageSize: pagination['pageSize'] as int,

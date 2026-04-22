@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kanban_frontend/features/auth/presentation/bloc/bloc.dart';
+import 'package:kanban_frontend/features/projects/presentation/bloc/bloc.dart';
 import 'package:kanban_frontend/router.dart';
 import 'injection_container.dart' as di;
 
@@ -19,6 +20,9 @@ class KanbanFrontendApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthBloc>(
           create: (_) => di.sl<AuthBloc>(),
+        ),
+        BlocProvider<ProjectBloc>(
+          create: (_) => di.sl<ProjectBloc>(),
         ),
       ],
       child: Builder(

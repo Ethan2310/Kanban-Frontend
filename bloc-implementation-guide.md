@@ -1,15 +1,16 @@
-# BLoC Feature Implementation Guide (Data + Domain)
+# BLoC Feature Implementation Guide (Data + Domain + Presentation)
 
-This guide documents the canonical patterns to implement a feature for BLoC consumption, focused on the Domain and Data layers.
+This guide documents the canonical patterns to implement a feature for BLoC consumption across Domain, Data, and Presentation layers.
 
 It reflects the latest corrected implementation for:
 - typed error handling (exception -> failure mapping)
 - admin-only endpoint behavior (401 Unauthorized)
 - list response pagination shape from OpenAPI (`pagination` object)
+- role-aware presentation behavior (user read-only vs admin full actions)
 
 ---
 
-## 1) Feature Structure (Domain + Data)
+## 1) Feature Structure (Domain + Data + Presentation)
 
 ```
 lib/features/<feature>/
@@ -17,10 +18,14 @@ lib/features/<feature>/
 │   ├── entities/
 │   ├── repositories/
 │   └── usecases/
-└── data/
-    ├── datasources/
-    ├── models/
-    └── repositories/
+├── data/
+│   ├── datasources/
+│   ├── models/
+│   └── repositories/
+└── presentation/
+  ├── bloc/
+  ├── screens/
+  └── widgets/
 ```
 
 Direction is always: Presentation -> Domain -> Data.
@@ -299,3 +304,124 @@ When implementing presentation BLoC files:
 - expose a single barrel export file (for example `bloc.dart`)
 
 This keeps import noise low and matches the clean-import pattern used in this project.
+
+---
+
+## 9) Presentation Layer Blueprint (Reusable)
+
+Use this as the default approach for all new feature presentation layers.
+
+### 9.1 File layout
+
+```
+lib/features/<feature>/presentation/
+├── bloc/
+│   ├── <feature>_bloc.dart
+│   ├── <feature>_event.dart
+│   ├── <feature>_state.dart
+│   └── bloc.dart
+├── screens/
+│   └── <feature>_screen.dart
+└── widgets/
+  └── ... reusable feature widgets
+```
+
+### 9.2 Event design
+
+Model events around user intent and endpoint actions:
+- load and refresh (`FeatureLoadRequested`)
+- selection (`FeatureSelected`) for list/detail flows
+- CRUD (`FeatureCreateRequested`, `FeatureUpdateRequested`, `FeatureDeleteRequested`)
+- relationship actions for nested resources (for example add/remove users)
+- transient UI cleanup event (`FeatureNoticeCleared`)
+
+Guideline: keep events payload-focused and immutable.
+
+### 9.3 State design
+
+Minimum state set:
+- `FeatureInitial`
+- `FeatureLoading`
+- `FeatureLoaded`
+- `FeatureError`
+
+Recommended extras in `FeatureLoaded` for complex screens:
+- selected entity id
+- related nested list data (for example users in selected project)
+- `isBusy` flag for in-place action progress
+- `notice` string for one-off success/error snackbars
+
+Add an error-type enum to avoid message-string branching in UI.
+
+### 9.4 BLoC responsibilities
+
+BLoC should:
+- orchestrate use case calls only (no network/domain logic in UI)
+- map `Failure` to user-facing message + typed error enum
+- keep role/access checks centralized
+- refresh aggregate state after mutating actions
+
+Pattern for mutating actions:
+1. Validate permissions.
+2. Emit loaded state with `isBusy = true`.
+3. Execute use case.
+4. On success, reload list/detail snapshot.
+5. On failure, emit loaded state with `notice`.
+
+### 9.5 Role-aware access pattern
+
+Use authenticated user context to split flows at load time:
+- standard user: load only own records (for projects, pass `userId` filter)
+- admin: load full list and enable all mutation events
+
+Enforce access in both layers:
+- backend remains source of truth (`401`)
+- presentation blocks disallowed actions early for UX clarity
+
+### 9.6 Screen integration pattern
+
+In screen widgets:
+- dispatch initial load once (typically in `didChangeDependencies`)
+- use `BlocConsumer` when both rendering and side effects (snackbar/navigation) are needed
+- render explicit branches for loading, error, empty, and loaded
+- convert loaded domain models into UI widget models near the screen boundary
+
+For one-off notices:
+- show snackbar in listener
+- immediately dispatch `FeatureNoticeCleared` to avoid duplicate toasts on rebuild
+
+### 9.7 DI and app wiring
+
+Always register in this order:
+1. `registerFactory` for BLoC
+2. `registerLazySingleton` for use cases
+3. repository interface to implementation
+4. datasource abstractions to implementations
+
+Expose the feature BLoC using `MultiBlocProvider` where the feature screens are mounted.
+
+---
+
+## 10) Projects Presentation Reference
+
+The Projects feature follows this blueprint exactly.
+
+### User flow
+
+- Loads projects with current user id filter.
+- Can view project details only.
+- Admin-only UI sections are hidden.
+
+### Admin flow
+
+- Can create/update/delete projects.
+- Can add/remove users from selected project.
+- On project selection, loads project users and binds them to `ProjectInfoCard` admin table.
+
+### Widget binding notes
+
+- `ProjectInfoCard` is role-aware using an `isAdmin` flag.
+- `ProjectAdminUser` includes `userId` so remove actions can call the correct endpoint.
+- Screen maps `ProjectUserSummaryEntity` -> `ProjectAdminUser` before passing rows to `_buildAdminData` table.
+
+This reference should be copied structurally for future features, changing only entity names, use case calls, and role rules.
