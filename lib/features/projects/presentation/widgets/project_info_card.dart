@@ -4,11 +4,13 @@ import 'package:kanban_frontend/core/ui/widgets/info_card.dart';
 import 'package:kanban_frontend/core/ui/widgets/info_table.dart';
 
 class ProjectAdminUser {
+  final int userId;
   final String firstName;
   final String lastName;
   final String email;
 
   const ProjectAdminUser({
+    required this.userId,
     required this.firstName,
     required this.lastName,
     required this.email,
@@ -27,6 +29,7 @@ class ProjectInfoCard extends StatelessWidget {
   final double adminTableHeight;
   final TextStyle? adminHeadingTextStyle;
   final TextStyle? adminDataTextStyle;
+  final bool isAdmin;
 
   const ProjectInfoCard({
     super.key,
@@ -41,6 +44,7 @@ class ProjectInfoCard extends StatelessWidget {
     this.adminTableHeight = 220,
     this.adminHeadingTextStyle,
     this.adminDataTextStyle,
+    this.isAdmin = true,
   });
 
   @override
@@ -59,32 +63,34 @@ class ProjectInfoCard extends StatelessWidget {
           title: 'Information',
           child: Text('Description : $projectDescription'),
         ),
-        InfoCardSection(
-          title: 'AdminData',
-          child: _buildAdminData(context),
-        ),
-        InfoCardSection(
-          title: 'Actions',
-          child: Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: [
-              AddButton(
-                onPressed: onDeleteProject,
-                text: 'Delete Project',
-                backgroundColor: Colors.red,
-                size: const Size(220, 52),
-                icon: Icons.delete_forever,
-              ),
-              AddButton(
-                onPressed: onUpdateProject,
-                text: 'Update Project',
-                size: const Size(220, 52),
-                icon: Icons.edit,
-              ),
-            ],
+        if (isAdmin)
+          InfoCardSection(
+            title: 'AdminData',
+            child: _buildAdminData(context),
           ),
-        ),
+        if (isAdmin)
+          InfoCardSection(
+            title: 'Actions',
+            child: Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              children: [
+                IconedButton(
+                  onPressed: onDeleteProject,
+                  text: 'Delete Project',
+                  backgroundColor: Colors.red,
+                  size: const Size(220, 52),
+                  icon: Icons.delete_forever,
+                ),
+                IconedButton(
+                  onPressed: onUpdateProject,
+                  text: 'Update Project',
+                  size: const Size(220, 52),
+                  icon: Icons.edit,
+                ),
+              ],
+            ),
+          ),
       ],
     );
   }
@@ -122,7 +128,7 @@ class ProjectInfoCard extends StatelessWidget {
               headingTextAlign: TextAlign.right,
               cellBuilder: (context, row) => Align(
                 alignment: Alignment.centerRight,
-                child: AddButton(
+                child: IconedButton(
                   onPressed: () => onRemoveAdmin(row),
                   backgroundColor: Colors.red,
                   size: const Size(52, 40),
@@ -137,7 +143,7 @@ class ProjectInfoCard extends StatelessWidget {
         const SizedBox(height: 12),
         Align(
           alignment: Alignment.centerRight,
-          child: AddButton(
+          child: IconedButton(
             onPressed: onAddAdmin,
             text: 'Add User',
             size: const Size(190, 50),

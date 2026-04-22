@@ -3,12 +3,6 @@ import 'package:kanban_frontend/features/auth/domain/entities/user_entity.dart';
 class UserModel extends UserEntity {
   const UserModel({
     required super.id,
-    required super.guid,
-    super.createdById,
-    required super.createdOn,
-    super.updatedById,
-    required super.updatedOn,
-    required super.isActive,
     required super.email,
     required super.firstName,
     required super.lastName,
@@ -17,51 +11,28 @@ class UserModel extends UserEntity {
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
+    final roleRaw = (json['role'] as String?) ?? UserRole.user.name;
+
     return UserModel(
-      id: json['id'],
-      guid: json['guid'],
-      createdById: json['createdById'],
-      createdOn: DateTime.parse(json['createdOn']),
-      updatedById: json['updatedById'],
-      updatedOn: DateTime.parse(json['updatedOn']),
-      isActive: json['isActive'],
-      email: json['email'],
-      firstName: json['firstName'],
-      lastName: json['lastName'],
+      id: (json['id'] ?? json['userId']) as int,
+      email: (json['email'] as String?) ?? '',
+      firstName: (json['firstName'] as String?) ?? '',
+      lastName: (json['lastName'] as String?) ?? '',
       role: UserRole.values.firstWhere(
-        (e) => e.name.toLowerCase() == (json['role'] as String).toLowerCase(),
+        (e) => e.name.toLowerCase() == roleRaw.toLowerCase(),
+        orElse: () => UserRole.user,
       ),
-      isVerified: json['isVerified'],
+      isVerified: (json['isVerified'] as bool?) ?? true,
     );
   }
 
   factory UserModel.fromLoginJson(Map<String, dynamic> json) {
-    final now = DateTime.now();
-    return UserModel(
-      id: (json['userId'] ?? json['id']) as int,
-      guid: '',
-      createdOn: now,
-      updatedOn: now,
-      isActive: true,
-      email: json['email'] as String,
-      firstName: json['firstName'] as String,
-      lastName: json['lastName'] as String,
-      role: UserRole.values.firstWhere(
-        (e) => e.name.toLowerCase() == (json['role'] as String).toLowerCase(),
-      ),
-      isVerified: true,
-    );
+    return UserModel.fromJson(json);
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'guid': guid,
-      'createdById': createdById,
-      'createdOn': createdOn.toIso8601String(),
-      'updatedById': updatedById,
-      'updatedOn': updatedOn.toIso8601String(),
-      'isActive': isActive,
       'email': email,
       'firstName': firstName,
       'lastName': lastName,

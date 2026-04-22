@@ -17,7 +17,7 @@ class MockFeatureScreen extends StatelessWidget {
           '$title screen (mock)',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
-        AddButton(
+        IconedButton(
             onPressed: () {/* TODO: Implement action */},
             text: 'Add $title',
             backgroundColor: Colors.black,
