@@ -11,7 +11,7 @@ class ProjectLocalDataSourceImpl implements ProjectLocalDataSource {
   final SharedPreferences sharedPreferences;
   static const _projectKey = 'CACHED_PROJECTS';
   ProjectListModel _cachedProjects = const ProjectListModel(
-      projects: [], totalCount: 0, pageSize: 0, currentPage: 0);
+      projects: [], totalCount: 0, pageSize: 0, pageNumber: 1, totalPages: 0);
 
   ProjectLocalDataSourceImpl({required this.sharedPreferences});
 
@@ -32,7 +32,8 @@ class ProjectLocalDataSourceImpl implements ProjectLocalDataSource {
             projectsJson.map((json) => ProjectModel.fromJson(json)).toList(),
         totalCount: projectsJson.length,
         pageSize: projectsJson.length,
-        currentPage: 1,
+        pageNumber: 1,
+        totalPages: 1,
       );
     }
     return _cachedProjects;
@@ -42,6 +43,6 @@ class ProjectLocalDataSourceImpl implements ProjectLocalDataSource {
   Future<void> clearCache() async {
     await sharedPreferences.remove(_projectKey);
     _cachedProjects = const ProjectListModel(
-        projects: [], totalCount: 0, pageSize: 0, currentPage: 0);
+        projects: [], totalCount: 0, pageSize: 0, pageNumber: 1, totalPages: 0);
   }
 }

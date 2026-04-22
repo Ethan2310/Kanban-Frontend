@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
+import 'package:kanban_frontend/core/error/exceptions.dart';
 import 'package:kanban_frontend/core/error/failures.dart';
 import 'package:kanban_frontend/features/projects/data/datasources/project_local_datasource.dart';
 import 'package:kanban_frontend/features/projects/data/datasources/project_remote_datasource.dart';
 import 'package:kanban_frontend/features/projects/domain/entities/project_entity.dart';
 import 'package:kanban_frontend/features/projects/domain/entities/project_user_access_entity.dart';
+import 'package:kanban_frontend/features/projects/domain/entities/project_user_summary_entity.dart';
 import 'package:kanban_frontend/features/projects/domain/repositories/project_repository.dart';
 
 class ProjectRepositoryImpl implements ProjectRepository {
@@ -15,6 +17,19 @@ class ProjectRepositoryImpl implements ProjectRepository {
     required this.localDataSource,
   });
 
+  Failure _mapException(Object e) {
+    if (e is UnauthorizedException) {
+      return UnauthorizedFailure(message: e.message);
+    }
+    if (e is NotFoundException) {
+      return NotFoundFailure(message: e.message);
+    }
+    if (e is ServerException) {
+      return ServerFailure(message: e.message, errorCode: e.errorCode);
+    }
+    return ServerFailure(message: e.toString());
+  }
+
   @override
   Future<Either<Failure, ProjectListEntity>> getProjects(
       int? boardId, int? userId, String? name) async {
@@ -22,13 +37,14 @@ class ProjectRepositoryImpl implements ProjectRepository {
       final remoteProjects =
           await remoteDataSource.getProjects(boardId, userId, name);
       return Right(remoteProjects);
-    } catch (e) {
+    } on UnauthorizedException catch (e) {
+      return Left(UnauthorizedFailure(message: e.message));
+    } on ServerException catch (e) {
       final localProjects = await localDataSource.getCachedProjects();
       if (localProjects.projects.isNotEmpty) {
         return Right(localProjects);
-      } else {
-        return Left(ServerFailure(message: "Failed to fetch projects: $e"));
       }
+      return Left(ServerFailure(message: e.message, errorCode: e.errorCode));
     }
   }
 
@@ -40,7 +56,7 @@ class ProjectRepositoryImpl implements ProjectRepository {
           await remoteDataSource.createProject(name, description);
       return Right(newProject);
     } catch (e) {
-      return Left(ServerFailure(message: "Failed to create project: $e"));
+      return Left(_mapException(e));
     }
   }
 
@@ -50,7 +66,7 @@ class ProjectRepositoryImpl implements ProjectRepository {
       await remoteDataSource.deleteProject(projectId);
       return const Right(null);
     } catch (e) {
-      return Left(ServerFailure(message: "Failed to delete project: $e"));
+      return Left(_mapException(e));
     }
   }
 
@@ -62,7 +78,7 @@ class ProjectRepositoryImpl implements ProjectRepository {
           projectId, newName, newDescription);
       return Right(updatedProject);
     } catch (e) {
-      return Left(ServerFailure(message: "Failed to update project: $e"));
+      return Left(_mapException(e));
     }
   }
 
@@ -73,18 +89,18 @@ class ProjectRepositoryImpl implements ProjectRepository {
       final access = await remoteDataSource.addUserToProject(projectId, userId);
       return Right(access);
     } catch (e) {
-      return Left(ServerFailure(message: "Failed to add user to project: $e"));
+      return Left(_mapException(e));
     }
   }
 
   @override
-  Future<Either<Failure, List<ProjectUserAccessEntity>>> getProjectUsers(
+  Future<Either<Failure, ProjectUserListEntity>> getProjectUsers(
       int projectId) async {
     try {
       final users = await remoteDataSource.getProjectUsers(projectId);
       return Right(users);
     } catch (e) {
-      return Left(ServerFailure(message: "Failed to get project users: $e"));
+      return Left(_mapException(e));
     }
   }
 
@@ -96,8 +112,7 @@ class ProjectRepositoryImpl implements ProjectRepository {
           await remoteDataSource.removeUserFromProject(projectId, userId);
       return Right(success);
     } catch (e) {
-      return Left(
-          ServerFailure(message: "Failed to remove user from project: $e"));
+      return Left(_mapException(e));
     }
   }
 }

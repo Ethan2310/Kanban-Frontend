@@ -31,7 +31,8 @@ class ProjectListEntity extends BasePaginatedEntity {
     required this.projects,
     required super.totalCount,
     required super.pageSize,
-    required super.currentPage,
+    required super.pageNumber,
+    required super.totalPages,
   });
 
   @override

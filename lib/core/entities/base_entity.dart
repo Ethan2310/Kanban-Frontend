@@ -36,17 +36,20 @@ abstract class BaseEntity extends Equatable {
 abstract class BasePaginatedEntity {
   final int totalCount;
   final int pageSize;
-  final int currentPage;
+  final int pageNumber;
+  final int totalPages;
 
   const BasePaginatedEntity({
     required this.totalCount,
     required this.pageSize,
-    required this.currentPage,
+    required this.pageNumber,
+    required this.totalPages,
   });
 
   List<Object?> get props => [
         totalCount,
         pageSize,
-        currentPage,
+        pageNumber,
+        totalPages,
       ];
 }

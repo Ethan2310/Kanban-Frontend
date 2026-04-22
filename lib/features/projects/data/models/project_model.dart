@@ -47,26 +47,32 @@ class ProjectListModel extends ProjectListEntity {
     required super.projects,
     required super.totalCount,
     required super.pageSize,
-    required super.currentPage,
+    required super.pageNumber,
+    required super.totalPages,
   });
 
   factory ProjectListModel.fromJson(Map<String, dynamic> json) {
+    final pagination = json['pagination'] as Map<String, dynamic>;
     return ProjectListModel(
       projects: (json['projects'] as List)
           .map((e) => ProjectModel.fromJson(e))
           .toList(),
-      totalCount: json['totalCount'],
-      pageSize: json['pageSize'],
-      currentPage: json['currentPage'],
+      totalCount: pagination['totalCount'] as int,
+      pageSize: pagination['pageSize'] as int,
+      pageNumber: pagination['pageNumber'] as int,
+      totalPages: pagination['totalPages'] as int,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'projects': projects.map((e) => (e as ProjectModel).toJson()).toList(),
-      'totalCount': totalCount,
-      'pageSize': pageSize,
-      'currentPage': currentPage,
+      'pagination': {
+        'totalCount': totalCount,
+        'pageSize': pageSize,
+        'pageNumber': pageNumber,
+        'totalPages': totalPages,
+      },
     };
   }
 }

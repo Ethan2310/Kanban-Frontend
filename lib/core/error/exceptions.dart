@@ -17,3 +17,13 @@ class ConflictException implements Exception {
   final String? message;
   const ConflictException({this.message});
 }
+
+class UnauthorizedException implements Exception {
+  final String? message;
+  const UnauthorizedException({this.message});
+}
+
+class NotFoundException implements Exception {
+  final String? message;
+  const NotFoundException({this.message});
+}

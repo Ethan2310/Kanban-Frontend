@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:kanban_frontend/features/projects/domain/entities/project_entity.dart';
 import 'package:kanban_frontend/features/projects/domain/entities/project_user_access_entity.dart';
+import 'package:kanban_frontend/features/projects/domain/entities/project_user_summary_entity.dart';
 import 'package:kanban_frontend/core/error/failures.dart';
 
 abstract class ProjectRepository {
@@ -13,8 +14,7 @@ abstract class ProjectRepository {
       int? boardId, int? userId, String? name);
   Future<Either<Failure, ProjectUserAccessEntity>> addUserToProject(
       int projectId, int userId);
-  Future<Either<Failure, List<ProjectUserAccessEntity>>> getProjectUsers(
-      int projectId);
+  Future<Either<Failure, ProjectUserListEntity>> getProjectUsers(int projectId);
   Future<Either<Failure, bool>> removeUserFromProject(
       int projectId, int userId);
 }
