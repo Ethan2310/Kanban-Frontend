@@ -75,14 +75,14 @@ class ProjectInfoCard extends StatelessWidget {
               spacing: 12,
               runSpacing: 12,
               children: [
-                AddButton(
+                IconedButton(
                   onPressed: onDeleteProject,
                   text: 'Delete Project',
                   backgroundColor: Colors.red,
                   size: const Size(220, 52),
                   icon: Icons.delete_forever,
                 ),
-                AddButton(
+                IconedButton(
                   onPressed: onUpdateProject,
                   text: 'Update Project',
                   size: const Size(220, 52),
@@ -128,7 +128,7 @@ class ProjectInfoCard extends StatelessWidget {
               headingTextAlign: TextAlign.right,
               cellBuilder: (context, row) => Align(
                 alignment: Alignment.centerRight,
-                child: AddButton(
+                child: IconedButton(
                   onPressed: () => onRemoveAdmin(row),
                   backgroundColor: Colors.red,
                   size: const Size(52, 40),
@@ -143,7 +143,7 @@ class ProjectInfoCard extends StatelessWidget {
         const SizedBox(height: 12),
         Align(
           alignment: Alignment.centerRight,
-          child: AddButton(
+          child: IconedButton(
             onPressed: onAddAdmin,
             text: 'Add User',
             size: const Size(190, 50),

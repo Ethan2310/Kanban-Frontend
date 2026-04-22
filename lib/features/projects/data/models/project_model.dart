@@ -3,33 +3,14 @@ import 'package:kanban_frontend/features/projects/domain/entities/project_entity
 class ProjectModel extends ProjectEntity {
   const ProjectModel({
     required super.id,
-    required super.guid,
-    super.createdById,
-    required super.createdOn,
-    super.updatedById,
-    required super.updatedOn,
-    required super.isActive,
     required super.name,
     required super.description,
   });
 
   factory ProjectModel.fromJson(Map<String, dynamic> json) {
-    final createdOnRaw = json['createdOn'];
-    final updatedOnRaw = json['updatedOn'];
-
     return ProjectModel(
       // Supports both {id: ...} and {projectId: ...} payloads.
       id: (json['id'] ?? json['projectId']) as int,
-      guid: (json['guid'] as String?) ?? '',
-      createdById: json['createdById'] as int?,
-      createdOn: createdOnRaw is String
-          ? DateTime.parse(createdOnRaw)
-          : DateTime.fromMillisecondsSinceEpoch(0),
-      updatedById: json['updatedById'] as int?,
-      updatedOn: updatedOnRaw is String
-          ? DateTime.parse(updatedOnRaw)
-          : DateTime.fromMillisecondsSinceEpoch(0),
-      isActive: (json['isActive'] as bool?) ?? true,
       name: (json['name'] as String?) ?? '',
       description: (json['description'] as String?) ?? '',
     );
@@ -38,12 +19,6 @@ class ProjectModel extends ProjectEntity {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'guid': guid,
-      'createdById': createdById,
-      'createdOn': createdOn.toIso8601String(),
-      'updatedById': updatedById,
-      'updatedOn': updatedOn.toIso8601String(),
-      'isActive': isActive,
       'name': name,
       'description': description,
     };

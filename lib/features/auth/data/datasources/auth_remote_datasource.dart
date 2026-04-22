@@ -87,22 +87,13 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final data = response.data as Map<String, dynamic>;
       final token = data['token'] as String;
       final nestedUser = data['user'];
+      final userPayload =
+          nestedUser is Map<String, dynamic> ? nestedUser : data;
 
       // Accept both payload shapes:
       // 1) flat: { token, userId, email, ... }
       // 2) nested: { token, user: { id/userId, email, ... } }
-      final user = switch (nestedUser) {
-        Map<String, dynamic> u
-            when u.containsKey('id') &&
-                u.containsKey('guid') &&
-                u.containsKey('createdOn') &&
-                u.containsKey('updatedOn') &&
-                u.containsKey('isActive') &&
-                u.containsKey('isVerified') =>
-          UserModel.fromJson(u),
-        Map<String, dynamic> u => UserModel.fromLoginJson(u),
-        _ => UserModel.fromLoginJson(data),
-      };
+      final user = UserModel.fromJson(userPayload);
       return (token: token, user: user);
     } on DioException catch (e) {
       if (e.response?.statusCode == 401) {

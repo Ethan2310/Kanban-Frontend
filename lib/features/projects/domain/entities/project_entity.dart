@@ -1,24 +1,20 @@
+import 'package:equatable/equatable.dart';
 import 'package:kanban_frontend/core/entities/base_entity.dart';
 
-class ProjectEntity extends BaseEntity {
+class ProjectEntity extends Equatable {
+  final int id;
   final String name;
   final String description;
 
   const ProjectEntity({
-    required super.id,
-    required super.guid,
-    super.createdById,
-    required super.createdOn,
-    super.updatedById,
-    required super.updatedOn,
-    required super.isActive,
+    required this.id,
     required this.name,
     required this.description,
   });
 
   @override
   List<Object?> get props => [
-        ...super.props,
+        id,
         name,
         description,
       ];

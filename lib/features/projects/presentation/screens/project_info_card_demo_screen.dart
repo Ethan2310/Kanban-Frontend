@@ -268,7 +268,7 @@ class _ProjectInfoCardDemoScreenState extends State<ProjectInfoCardDemoScreen> {
                 const Text('No projects found.'),
                 if (isAdmin) ...[
                   const SizedBox(height: 12),
-                  AddButton(
+                  IconedButton(
                     onPressed: _createProjectDialog,
                     text: 'Create Project',
                     size: const Size(220, 52),
@@ -322,7 +322,7 @@ class _ProjectInfoCardDemoScreenState extends State<ProjectInfoCardDemoScreen> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         if (isAdmin)
-                          AddButton(
+                          IconedButton(
                             onPressed: _createProjectDialog,
                             text: 'Create Project',
                             size: const Size(220, 52),

@@ -1,9 +1,10 @@
-import 'package:kanban_frontend/core/entities/base_entity.dart';
+import 'package:equatable/equatable.dart';
 
 /// Represents the possible roles a user can have.
 enum UserRole { admin, user }
 
-class UserEntity extends BaseEntity {
+class UserEntity extends Equatable {
+  final int id;
   final String email;
   final String firstName;
   final String lastName;
@@ -11,13 +12,7 @@ class UserEntity extends BaseEntity {
   final bool isVerified;
 
   const UserEntity({
-    required super.id,
-    required super.guid,
-    super.createdById,
-    required super.createdOn,
-    super.updatedById,
-    required super.updatedOn,
-    required super.isActive,
+    required this.id,
     required this.email,
     required this.firstName,
     required this.lastName,
@@ -30,7 +25,7 @@ class UserEntity extends BaseEntity {
 
   @override
   List<Object?> get props => [
-        ...super.props,
+        id,
         email,
         firstName,
         lastName,
