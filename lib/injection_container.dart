@@ -14,6 +14,14 @@ import 'package:kanban_frontend/features/auth/domain/usecases/login_usecase.dart
 import 'package:kanban_frontend/features/auth/domain/usecases/register_usecase.dart';
 import 'package:kanban_frontend/features/auth/domain/usecases/logout_usecase.dart';
 import 'package:kanban_frontend/features/auth/presentation/bloc/bloc.dart';
+import 'package:kanban_frontend/features/boards/data/datasources/board_remote_datasource.dart';
+import 'package:kanban_frontend/features/boards/data/repositories/board_repository_impl.dart';
+import 'package:kanban_frontend/features/boards/domain/repositories/board_repository.dart';
+import 'package:kanban_frontend/features/boards/domain/usecases/create_board_usecase.dart';
+import 'package:kanban_frontend/features/boards/domain/usecases/delete_board_usecase.dart';
+import 'package:kanban_frontend/features/boards/domain/usecases/list_board_usecase.dart';
+import 'package:kanban_frontend/features/boards/domain/usecases/update_board_usecase.dart';
+import 'package:kanban_frontend/features/boards/presentation/bloc/bloc.dart';
 import 'package:kanban_frontend/features/projects/data/datasources/project_local_datasource.dart';
 import 'package:kanban_frontend/features/projects/data/datasources/project_remote_datasource.dart';
 import 'package:kanban_frontend/features/projects/data/repositories/project_repository_impl.dart';
@@ -55,6 +63,15 @@ Future<void> init() async {
       listProjectUsersUsecase: sl(),
     ),
   );
+  sl.registerFactory(
+    () => BoardBloc(
+      listProjectUsecase: sl(),
+      listBoardUsecase: sl(),
+      createBoardUsecase: sl(),
+      updateBoardUsecase: sl(),
+      deleteBoardUsecase: sl(),
+    ),
+  );
 
   sl.registerLazySingleton(() => LoginUseCase(repository: sl()));
   sl.registerLazySingleton(() => RegisterUseCase(repository: sl()));
@@ -68,6 +85,10 @@ Future<void> init() async {
   sl.registerLazySingleton(() => AddUserToProjectUsecase(sl()));
   sl.registerLazySingleton(() => RemoveUserFromProjectUsecase(sl()));
   sl.registerLazySingleton(() => ListProjectUsers(sl()));
+  sl.registerLazySingleton(() => ListBoardUsecase(sl()));
+  sl.registerLazySingleton(() => CreateBoardUsecase(sl()));
+  sl.registerLazySingleton(() => UpdateBoardUsecase(sl()));
+  sl.registerLazySingleton(() => DeleteBoardUsecase(sl()));
 
   sl.registerLazySingleton<AuthRepository>(
     () => AuthRepositoryImpl(
@@ -82,12 +103,20 @@ Future<void> init() async {
       localDataSource: sl(),
     ),
   );
+  sl.registerLazySingleton<BoardRepository>(
+    () => BoardRepositoryImpl(
+      remoteDataSource: sl(),
+    ),
+  );
 
   sl.registerLazySingleton<AuthRemoteDataSource>(
     () => AuthRemoteDataSourceImpl(dio: sl()),
   );
   sl.registerLazySingleton<ProjectRemoteDataSource>(
     () => ProjectRemoteDataSourceImpl(dio: sl()),
+  );
+  sl.registerLazySingleton<BoardRemoteDataSource>(
+    () => BoardRemoteDataSourceImpl(dio: sl()),
   );
   sl.registerLazySingleton<AuthLocalSecureStorage>(
     () => AuthLocalSecureStorageImpl(secureStorage: sl()),

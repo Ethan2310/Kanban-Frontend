@@ -6,6 +6,7 @@ import 'package:kanban_frontend/core/routing/app_routes.dart';
 import 'package:kanban_frontend/core/ui/Screens/main_shell_screen.dart';
 import 'package:kanban_frontend/core/ui/Screens/mock_feature_screen.dart';
 import 'package:kanban_frontend/features/auth/presentation/bloc/bloc.dart';
+import 'package:kanban_frontend/features/boards/presentation/screens/boards_screen.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/home_page.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/login_page.dart';
 import 'package:kanban_frontend/features/auth/presentation/screens/register_page.dart';
@@ -85,7 +86,7 @@ class AppRouter {
                 path: AppRoutes.boards,
                 pageBuilder: (context, state) => NoTransitionPage<void>(
                   key: state.pageKey,
-                  child: const MockFeatureScreen(title: 'Boards'),
+                  child: const BoardsScreen(),
                 ),
               ),
               GoRoute(
