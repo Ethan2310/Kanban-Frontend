@@ -74,13 +74,12 @@ class ProjectInfoCard extends StatelessWidget {
             child: Wrap(
               spacing: 12,
               runSpacing: 12,
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                IconedButton(
+                IconButton(
                   onPressed: onDeleteProject,
-                  text: 'Delete Project',
-                  backgroundColor: Colors.red,
-                  size: const Size(220, 52),
-                  icon: Icons.delete_forever,
+                  icon: const Icon(Icons.delete_outline),
+                  tooltip: 'Delete project',
                 ),
                 IconedButton(
                   onPressed: onUpdateProject,
